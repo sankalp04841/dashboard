@@ -57,13 +57,13 @@ export default function ActivityTile() {
     }
   };
 
-  const cellVariants: Variants = {
+const cellVariants = {
   initial: {
     scale: 0,
     opacity: 0
   },
 
-  visible: (delay) => ({
+  visible: {
     scale: 1,
     opacity: 1,
     filter: 'brightness(1)',
@@ -71,18 +71,17 @@ export default function ActivityTile() {
       type: 'spring' as const,
       stiffness: 300,
       damping: 20,
-      delay: delay,
     }
-  }),
+  },
 
   hover: {
     scale: 1.35,
     opacity: 1,
     filter: 'brightness(1.4)',
-    boxShadow: '0 0 10px rgba(99, 102, 241, 0.6)',
+    boxShadow: '0 0 10px rgba(99,102,241,0.6)',
     zIndex: 20,
     transition: {
-      type: 'spring',
+      type: 'spring' as const,
       stiffness: 300,
       damping: 12,
     }
@@ -94,7 +93,7 @@ export default function ActivityTile() {
     filter: 'brightness(1.2)',
     zIndex: 10,
     transition: {
-      type: 'spring',
+      type: 'spring' as const,
       stiffness: 300,
       damping: 18,
     }
@@ -154,12 +153,11 @@ const hoveredDay =
                   else if (isNearby) currentVariant = 'nearby';
 
                   return (
-                    <motion.div
+<motion.div
   key={day.date}
   variants={cellVariants}
   initial="initial"
-  animate="active"
-  whileHover="hover"
+  animate={currentVariant}
   onMouseEnter={() => setHoveredIndex(idx)}
   onMouseLeave={() => setHoveredIndex(null)}
   className={`h-[11px] w-[11px] rounded-[3px] border cursor-crosshair shrink-0 gpu-layer will-change-transform ${getLevelColor(day.level)}`}
