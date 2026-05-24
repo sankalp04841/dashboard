@@ -75,7 +75,7 @@ export default function Sidebar({
                 exit={{ opacity: 0, x: -10 }}
                 className="font-bold text-lg tracking-tight bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent"
               >
-                Pulse Academy
+                Blah Education Center
               </motion.span>
             )}
           </div>
