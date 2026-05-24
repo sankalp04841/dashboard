@@ -86,7 +86,7 @@ export default function GlowCard({
       borderColor: 'rgba(139, 92, 246, 0.25)', // purple glow border
       boxShadow: '0 12px 30px rgba(139, 92, 246, 0.08), 0 4px 20px rgba(0, 0, 0, 0.4)',
       transition: {
-        type: 'spring',
+        type: 'spring' as const,
         stiffness: 300,
         damping: 20,
       }

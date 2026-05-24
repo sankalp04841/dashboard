@@ -100,7 +100,7 @@ export default function ParticleField({ isIdle = false }: ParticleFieldProps) {
           transition={{
             duration: isIdle ? orb.duration * 0.8 : orb.duration, 
             repeat: Infinity,
-            ease: 'easeInOut',
+            ease: 'easeInOut' as const,
           }}
         />
       ))}
@@ -124,7 +124,7 @@ export default function ParticleField({ isIdle = false }: ParticleFieldProps) {
           transition={{
             duration: p.duration,
             repeat: Infinity,
-            ease: 'linear',
+            ease: 'linear' as const,
             delay: p.delay,
           }}
         />

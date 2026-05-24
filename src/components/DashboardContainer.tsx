@@ -57,7 +57,7 @@ export default function DashboardContainer({ courses }: DashboardContainerProps)
       scale: 1,
       y: 0,
       transition: { 
-        type: 'spring',
+        type: 'spring' as const,
         stiffness: 300,
         damping: 20
       } 
@@ -68,7 +68,7 @@ export default function DashboardContainer({ courses }: DashboardContainerProps)
       y: -10,
       transition: { 
         duration: 0.15,
-        ease: 'easeIn'
+        ease: 'easeIn' as const
       } 
     },
   } as const;

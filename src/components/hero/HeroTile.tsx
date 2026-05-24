@@ -64,20 +64,25 @@ export default function HeroTile({ isIdle = false }: HeroTileProps) {
     mouseY.set(0);
   };
 
-  const contentVariants = {
-    initial: { y: 0 },
-    hover: {
-      y: -2,
-      transition: { type: 'spring', stiffness: 300, damping: 20 }
+ const contentVariants = {
+  initial: { y: 0 },
+
+  hover: {
+    y: -2,
+    transition: {
+      type: 'spring' as const,
+      stiffness: 300,
+      damping: 20
     }
-  };
+  }
+};
 
   const sparkleVariants = {
     initial: { scale: 1, rotate: 0 },
     hover: {
       scale: 1.15,
       rotate: 15,
-      transition: { type: 'spring', stiffness: 300, damping: 20 }
+      transition: { type: 'spring' as const, stiffness: 300, damping: 20 }
     }
   };
 
@@ -116,7 +121,7 @@ border-white/[0.08]
             transition={{
               duration: 5.5,
               repeat: Infinity,
-              ease: 'easeInOut',
+              ease: 'easeInOut' as const,
             }}
             style={{
               x: meshTranslateX,
@@ -149,7 +154,7 @@ blur-[70px]
               duration: 2.5,
               repeat: Infinity,
               repeatDelay: 8.5, 
-              ease: 'easeInOut',
+              ease: 'easeInOut' as const,
             }}
           />
         </div>
@@ -173,7 +178,7 @@ blur-[70px]
             transition={{
               duration: p.duration,
               repeat: Infinity,
-              ease: 'easeInOut',
+              ease: 'easeInOut' as const,
               delay: p.delay,
             }}
           />
@@ -191,7 +196,7 @@ blur-[70px]
     y: -2
   }}
   transition={{
-    type: "spring",
+    type: "spring" as const,
     stiffness: 300,
     damping: 20
   }}
@@ -247,7 +252,7 @@ blur-[70px]
               transition={{
                 duration: 2,
                 repeat: Infinity,
-                ease: 'easeInOut',
+                ease: 'easeInOut' as const,
               }}
             >
               <Flame className="h-6 w-6 text-amber-500 fill-amber-500/20 animate-pulse" />

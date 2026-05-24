@@ -22,7 +22,7 @@ export default function Error({ error, reset }: ErrorProps) {
       <motion.div
         initial={{ opacity: 0, scale: 0.95, y: 10 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ type: 'spring', stiffness: 260, damping: 25 }}
+        transition={{ type: 'spring' as const, stiffness: 260, damping: 25 }}
         className="max-w-md w-full glass-panel-glow border-red-500/20 p-8 rounded-2xl text-center space-y-6 relative z-10"
       >
         {/* Animated Warning Icon */}
@@ -36,7 +36,7 @@ export default function Error({ error, reset }: ErrorProps) {
               transition={{
                 duration: 2,
                 repeat: Infinity,
-                ease: 'easeInOut',
+                ease: 'easeInOut' as const,
               }}
               className="absolute -inset-2 bg-red-500/20 rounded-full blur-md"
             />

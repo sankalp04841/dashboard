@@ -18,7 +18,7 @@ export default function ProgressBar({
   const scaleX = clampedValue / 100;
 
   const springConfig = {
-    type: 'spring',
+    type: 'spring' as const,
     stiffness: 300,
     damping: 20,
   } as const;
@@ -47,7 +47,7 @@ export default function ProgressBar({
           transition={{
             duration: 2.0,
             repeat: Infinity,
-            ease: 'linear',
+            ease: 'linear' as const,
           }}
         />
       </div>

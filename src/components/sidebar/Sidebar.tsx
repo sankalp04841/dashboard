@@ -26,7 +26,7 @@ export default function Sidebar({
   ];
 
   const springConfig = {
-    type: 'spring',
+    type: 'spring' as const,
     stiffness: 300,
     damping: 20,
   } as const;
@@ -36,7 +36,7 @@ export default function Sidebar({
     hover: {
       scale: [1, 1.15, 1],
       filter: 'drop-shadow(0 0 4px rgba(129, 140, 248, 0.4))',
-      transition: { duration: 0.35, ease: 'easeInOut' }
+      transition: { duration: 0.35, ease: 'easeInOut' as const }
     }
   };
 
@@ -46,7 +46,7 @@ export default function Sidebar({
     hover: {
       opacity: 1,
       scale: 1,
-      transition: { duration: 0.2, ease: 'easeOut' }
+      transition: { duration: 0.2, ease: 'easeOut' as const}
     }
   };
 
