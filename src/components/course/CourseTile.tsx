@@ -49,7 +49,7 @@ export default function CourseTile({ course }: CourseTileProps) {
 
   const style = gradientStyles[course.icon_name] || gradientStyles.Layers;
 
-  const springConfig = { type: 'spring', stiffness: 300, damping: 20 } as const;
+  const springConfig = { type: 'spring' as const, stiffness: 300, damping: 20 } as const;
   const iconVariants = {
     initial: { scale: 1, rotate: 0 },
     hover: { 

@@ -70,7 +70,7 @@ const cellVariants = {
     transition: {
       type: 'spring' as const,
       stiffness: 300,
-      damping: 20,
+      damping: 20
     }
   },
 
@@ -83,7 +83,7 @@ const cellVariants = {
     transition: {
       type: 'spring' as const,
       stiffness: 300,
-      damping: 12,
+      damping: 12
     }
   },
 
@@ -95,10 +95,10 @@ const cellVariants = {
     transition: {
       type: 'spring' as const,
       stiffness: 300,
-      damping: 18,
+      damping: 18
     }
   }
-};
+} as const;
 
 const hoveredDay =
   hoveredIndex !== null
