@@ -68,7 +68,7 @@ export default function ActivityTile() {
     opacity: 1,
     filter: 'brightness(1)',
     transition: {
-      type: 'spring',
+      type: 'spring' as const,
       stiffness: 300,
       damping: 20,
       delay: delay,
