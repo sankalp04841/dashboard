@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { Calendar, ArrowUpRight, TrendingUp } from 'lucide-react';
 import GlowCard from '../ui/GlowCard';
 import CounterNumber from '../ui/CounterNumber';
@@ -57,45 +57,54 @@ export default function ActivityTile() {
     }
   };
 
-  const cellVariants = {
-    initial: { scale: 0, opacity: 0 },
-    visible: (delay: number) => ({
-      scale: 1,
-      opacity: 1,
-      filter: 'brightness(1)',
-      transition: {
-        type: 'spring',
-        stiffness: 300,
-        damping: 20,
-        delay: delay,
-      }
-    }),
-    hover: {
-      scale: 1.35,
-      opacity: 1,
-      filter: 'brightness(1.4)',
-      boxShadow: '0 0 10px rgba(99, 102, 241, 0.6)',
-      zIndex: 20,
-      transition: {
-        type: 'spring',
-        stiffness: 300,
-        damping: 12,
-      }
-    },
-    nearby: {
-      scale: 1.15,
-      opacity: 1,
-      filter: 'brightness(1.2)',
-      zIndex: 10,
-      transition: {
-        type: 'spring',
-        stiffness: 300,
-        damping: 18,
-      }
-    }
-  } as const;
+  const cellVariants: Variants = {
+  initial: {
+    scale: 0,
+    opacity: 0
+  },
 
-  const hoveredDay = hoveredIndex !== null ? activityData[hoveredIndex] : null;
+  visible: (delay) => ({
+    scale: 1,
+    opacity: 1,
+    filter: 'brightness(1)',
+    transition: {
+      type: 'spring',
+      stiffness: 300,
+      damping: 20,
+      delay: delay,
+    }
+  }),
+
+  hover: {
+    scale: 1.35,
+    opacity: 1,
+    filter: 'brightness(1.4)',
+    boxShadow: '0 0 10px rgba(99, 102, 241, 0.6)',
+    zIndex: 20,
+    transition: {
+      type: 'spring',
+      stiffness: 300,
+      damping: 12,
+    }
+  },
+
+  nearby: {
+    scale: 1.15,
+    opacity: 1,
+    filter: 'brightness(1.2)',
+    zIndex: 10,
+    transition: {
+      type: 'spring',
+      stiffness: 300,
+      damping: 18,
+    }
+  }
+};
+
+const hoveredDay =
+  hoveredIndex !== null
+    ? activityData[hoveredIndex]
+    : null;
 
   return (
     <GlowCard 
@@ -146,15 +155,15 @@ export default function ActivityTile() {
 
                   return (
                     <motion.div
-                      key={day.date}
-                      custom={randomDelays[idx]}
-                      variants={cellVariants}
-                      initial="initial"
-                      animate={currentVariant}
-                      onMouseEnter={() => setHoveredIndex(idx)}
-                      onMouseLeave={() => setHoveredIndex(null)}
-                      className={`h-[11px] w-[11px] rounded-[3px] border cursor-crosshair shrink-0 gpu-layer will-change-transform ${getLevelColor(day.level)}`}
-                    />
+  key={day.date}
+  variants={cellVariants}
+  initial="initial"
+  animate="active"
+  whileHover="hover"
+  onMouseEnter={() => setHoveredIndex(idx)}
+  onMouseLeave={() => setHoveredIndex(null)}
+  className={`h-[11px] w-[11px] rounded-[3px] border cursor-crosshair shrink-0 gpu-layer will-change-transform ${getLevelColor(day.level)}`}
+/>
                   );
                 })}
               </div>
