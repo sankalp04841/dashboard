@@ -1,4 +1,4 @@
-# Futuristic Student Dashboard
+# Student Dashboard
 
 A high-fidelity student dashboard prototype built using Next.js App Router, Supabase, Tailwind CSS, and Framer Motion. The application focuses on smooth interactions, responsive Bento layouts, server-rendered data, and a premium animated user experience.
 
